@@ -143,7 +143,8 @@ for candRDMI = 1:nCandRDMs
             %             toc
         else
             %             tic
-            bootstrapRs(candRDMI, b) = mean(diag(corr(squeeze(vectorizeRDMs(localReferenceRDMs)), squeeze(vectorizeRDMs(localTestRDM)), 'type',userOptions.distanceMeasure,'rows','pairwise')));
+            %bootstrapRs(candRDMI, b) = mean(diag(corr(squeeze(vectorizeRDMs(localReferenceRDMs)), squeeze(vectorizeRDMs(localTestRDM)), 'type',userOptions.distanceMeasure,'rows','pairwise')));
+            bootstrapRs(candRDMI, b) = corr(vectorizeRDMs(localReferenceRDMs)',vectorizeRDMs(localTestRDM)','type','Pearson','rows','pairwise')
             %             toc
         end
 
